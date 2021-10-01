@@ -1,5 +1,5 @@
 target/
-.metadata
+.metadata/
 chapp/.settings
 chapp/.classpath
 chapp/.project

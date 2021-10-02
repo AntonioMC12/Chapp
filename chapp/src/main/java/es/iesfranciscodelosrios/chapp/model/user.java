@@ -13,8 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "person")
-public class person implements Serializable {
+@XmlRootElement(name = "user")
+public class user implements Serializable {
 
 	/**
 	 * UID that we´ill use in this proyect.
@@ -23,13 +23,13 @@ public class person implements Serializable {
 
 	private String name;
 	private Boolean gender;
-	private int age; // To checks rooms +18
+	private Boolean age; // To checks rooms +18
 
-	public person() {
+	public user() {
 		super();
 	}
 
-	public person(String name, Boolean gender, int age) {
+	public user(String name, Boolean gender, Boolean age) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -52,11 +52,11 @@ public class person implements Serializable {
 		this.gender = gender;
 	}
 
-	public int getAge() {
+	public boolean getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Boolean age) {
 		this.age = age;
 	}
 	

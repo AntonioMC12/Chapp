@@ -11,30 +11,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "listOfUsers")
-public class users implements Serializable {
+public class listOfUsers implements Serializable {
 	/**
 	 * UID that we´ill use in this proyect.
 	 */
 	private static final long serialVersionUID = 1L;
-	@XmlElement(name="person",type=person.class)
+	@XmlElement(name="user",type=user.class)
 	
-	private List<person> listOfUser = new ArrayList<>();
+	private List<user> listOfUser = new ArrayList<>();
 	
 	
-	public users() {
+	public listOfUsers() {
 		super();
 	}
 
-	public users(List<person> listOfUser) {
+	public listOfUsers(List<user> listOfUser) {
 		super();
 		this.listOfUser = listOfUser;
 	}
 
-	public List<person> getListOfUser() {
+	public List<user> getListOfUser() {
 		return listOfUser;
 	}
 
-	public void setListOfUser(List<person> listOfUser) {
+	public void setListOfUser(List<user> listOfUser) {
 		this.listOfUser = listOfUser;
 	}
 

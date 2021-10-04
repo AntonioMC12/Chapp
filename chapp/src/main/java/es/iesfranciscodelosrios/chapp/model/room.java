@@ -1,5 +1,5 @@
 package es.iesfranciscodelosrios.chapp.model;
 
-public class model {
+public class room {
 
 }

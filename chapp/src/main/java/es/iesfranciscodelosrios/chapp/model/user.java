@@ -22,17 +22,15 @@ public class user implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	private Boolean gender;
 	private Boolean age; // To checks rooms +18
 
 	public user() {
 		super();
 	}
 
-	public user(String name, Boolean gender, Boolean age) {
+	public user(String name, Boolean age) {
 		super();
 		this.name = name;
-		this.gender = gender;
 		this.age = age;
 	}
 	
@@ -44,14 +42,6 @@ public class user implements Serializable {
 		this.name = name;
 	}
 
-	public Boolean getGender() {
-		return gender;
-	}
-
-	public void setGender(Boolean gender) {
-		this.gender = gender;
-	}
-
 	public boolean getAge() {
 		return age;
 	}
@@ -59,6 +49,21 @@ public class user implements Serializable {
 	public void setAge(Boolean age) {
 		this.age = age;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		user other = (user) obj;
+		if (name != other.name)
+			return false;
+		return true;
+	}
+	
 	
 	
 }

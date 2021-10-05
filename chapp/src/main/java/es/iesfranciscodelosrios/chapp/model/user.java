@@ -22,7 +22,7 @@ public class user implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@XmlAttribute(name = "Usuairo")
+	@XmlAttribute(name = "Usuario")
 	private String name;
 	@XmlAttribute(name = "Género")
 	private Boolean gender;
@@ -63,6 +63,4 @@ public class user implements Serializable {
 	public void setAge(Boolean age) {
 		this.age = age;
 	}
-	
-	
 }

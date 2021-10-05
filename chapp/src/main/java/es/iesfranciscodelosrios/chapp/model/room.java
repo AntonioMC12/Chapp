@@ -5,21 +5,27 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "room")
+@XmlRootElement(name = "Sala")
 public class room implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	// private static final int ID = 0;
-	@XmlElement(name="message",type= message.class)
-	private String name;
-	private List<message> listMessage;
-	private List<user> listUser;
-	private boolean under18;
+	@XmlAttribute(name="Sala")
+	protected String name;
+	@XmlElementWrapper(name="Mensajes")
+	@XmlElement(name="Mensaje", type = message.class)
+	protected List<message> listMessage;
+	@XmlElementWrapper(name="Usuarios")
+	@XmlElement(name="Usuario", type = user.class)
+	protected List<user> listUser;
+	@XmlAttribute(name="+18")
+	protected boolean under18;
 	
 	public room() {
 		super();
@@ -64,6 +70,14 @@ public class room implements Serializable {
 	public void setUnder18(boolean under18) {
 		this.under18 = under18;
 	}
+
+	@Override
+	public String toString() {
+		return "room [name=" + name + ", listMessage=" + listMessage + ", listUser=" + listUser + ", under18=" + under18
+				+ "]";
+	}
+	
+	
 	
 }
 	

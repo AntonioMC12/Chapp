@@ -2,8 +2,6 @@ package es.iesfranciscodelosrios.chapp.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,13 +16,13 @@ public class message implements Serializable {
 	@XmlElement(name="user",type=user.class)
 	private LocalDateTime timer;
 	private user user;
-	private List<String> messages = new ArrayList<>();
+	private String messages;
 	
 	public message() {
 		super();
 	}
 
-	public message(LocalDateTime timer, es.iesfranciscodelosrios.chapp.model.user user, List<String> messages) {
+	public message(LocalDateTime timer, user user, String messages) {
 		super();
 		this.timer = timer;
 		this.user = user;
@@ -47,11 +45,11 @@ public class message implements Serializable {
 		this.user = user;
 	}
 
-	public List<String> getMessages() {
+	public String getMessages() {
 		return messages;
 	}
 
-	public void setMessages(List<String> messages) {
+	public void setMessages(String messages) {
 		this.messages = messages;
 	}
 	

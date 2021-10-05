@@ -63,5 +63,18 @@ public class user implements Serializable {
 		this.age = age;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		user other = (user) obj;
+		if (name != other.name)
+			return false;
+		return true;
+	}
 	
 }

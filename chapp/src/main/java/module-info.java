@@ -9,6 +9,7 @@ module es.iesfranciscodelosrios.chapp {
 
     opens es.iesfranciscodelosrios.chapp to javafx.fxml,javafx.base,java.xml.bind;
     opens es.iesfranciscodelosrios.chapp.model to javafx.fxml,java.xml.bind;
+    opens es.iesfranciscodelosrios.chapp.utils to com.sun.xml.bind;
     exports es.iesfranciscodelosrios.chapp;
    
 }

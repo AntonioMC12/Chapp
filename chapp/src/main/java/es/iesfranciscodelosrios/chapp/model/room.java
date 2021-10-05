@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -15,11 +16,13 @@ public class room implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@XmlAttribute(name="Nombre")
+	@XmlAttribute(name="Sala")
 	private String name;
-	@XmlElement(name="Mensajes")
+	@XmlElementWrapper(name="Mensajes")
+	@XmlElement(name="Mensaje", type = message.class)
 	private List<message> listMessage;
-	@XmlElement(name="Usuarios")
+	@XmlElementWrapper(name="Usuarios")
+	@XmlElement(name="Usuario", type = user.class)
 	private List<user> listUser;
 	@XmlAttribute(name="+18")
 	private boolean under18;
@@ -67,6 +70,14 @@ public class room implements Serializable {
 	public void setUnder18(boolean under18) {
 		this.under18 = under18;
 	}
+
+	@Override
+	public String toString() {
+		return "room [name=" + name + ", listMessage=" + listMessage + ", listUser=" + listUser + ", under18=" + under18
+				+ "]";
+	}
+	
+	
 	
 }
 	

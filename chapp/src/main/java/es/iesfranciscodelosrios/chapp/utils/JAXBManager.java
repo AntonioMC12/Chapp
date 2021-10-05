@@ -15,9 +15,7 @@ import es.iesfranciscodelosrios.chapp.model.user;
 
 public class JAXBManager {
 	
-	//solo para pruebas
-	user Usuario1 = new user("Francisquito",true,true);
-	message mensaje = new message(LocalDateTime.now(), Usuario1,"Mensaje de prueba");
+
 	
 	static List<message> mensajes = new ArrayList<message>();
 	static List<user> usuarios = new ArrayList<user>();
@@ -31,7 +29,13 @@ public class JAXBManager {
 	}
 	
 	public static void saveFile(String url) {
+		//solo para pruebas
+		user Usuario1 = new user("Francisquito",true,true);
+		message mensaje = new message(LocalDateTime.now(), Usuario1,"Mensaje de prueba");
+		mensajes.add(mensaje);
+		usuarios.add(Usuario1);
 		room sala = new room("Sala 1", mensajes, usuarios, true);
+		System.out.println(sala);
 		
 		//marshaling
 		JAXBContext jaxbContext;

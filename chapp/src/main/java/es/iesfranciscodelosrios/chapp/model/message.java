@@ -21,7 +21,7 @@ public class message implements Serializable {
 	private LocalDateTime timer;
 	@XmlElement(name = "Usuairo",type = user.class)
 	private user user;
-	//@XmlElement(name = "Mensaje")
+	@XmlElement(name = "Mensaje")
 	private String messages;
 	
 	public message() {

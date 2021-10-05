@@ -9,14 +9,13 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
 
 public class JAXBManager {
-	
-
 	
 	static List<message> mensajes = new ArrayList<message>();
 	static List<user> usuarios = new ArrayList<user>();
@@ -57,5 +56,17 @@ public class JAXBManager {
 			e.printStackTrace();
 		}	
 	}
-
+	
+	public static void readXML(String url) {
+		
+		JAXBContext jaxbContext;
+		try {
+			jaxbContext = JAXBContext.newInstance(room.class);
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			jaxbUnmarshaller.unmarshal(new File(url));
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

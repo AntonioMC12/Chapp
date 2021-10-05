@@ -19,6 +19,6 @@ public class logInController {
 
 	@FXML
 	protected void logUser(ActionEvent Event) {
-
+		
 	}
 }

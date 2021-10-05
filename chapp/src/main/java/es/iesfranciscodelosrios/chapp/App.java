@@ -34,7 +34,8 @@ public class App extends Application {
 
     public static void main(String[] args) {
         //launch();
-    	JAXBManager.saveFile("C:\\Users\\garci\\Desktop\\FOTOS\\ejemplo.xml");
+
+    	JAXBManager.saveFile("C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\prueba.xml");
     }
 
 }

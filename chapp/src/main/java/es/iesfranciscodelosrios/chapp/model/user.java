@@ -22,11 +22,11 @@ public class user implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@XmlAttribute(name = "Usuairo")
-	protected String name;
+	private String name;
 	@XmlAttribute(name = "Género")
-	protected Boolean gender;
+	private Boolean gender;
 	@XmlAttribute(name = "Mayor de edad")
-	protected Boolean age; // To checks rooms +18
+	public Boolean age; // To checks rooms +18
 
 	public user() {
 		super();

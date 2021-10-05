@@ -17,15 +17,15 @@ public class room implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@XmlAttribute(name="Sala")
-	protected String name;
+	private String name;
 	@XmlElementWrapper(name="Mensajes")
 	@XmlElement(name="Mensaje", type = message.class)
-	protected List<message> listMessage;
+	private List<message> listMessage;
 	@XmlElementWrapper(name="Usuarios")
 	@XmlElement(name="Usuario", type = user.class)
-	protected List<user> listUser;
+	private List<user> listUser;
 	@XmlAttribute(name="+18")
-	protected boolean under18;
+	private boolean under18;
 	
 	public room() {
 		super();

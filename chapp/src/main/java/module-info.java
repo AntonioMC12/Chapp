@@ -4,6 +4,7 @@ module es.iesfranciscodelosrios.chapp {
 	requires javafx.base;
 	requires java.xml;
 	requires java.xml.bind;
+	requires javafx.graphics;
 
 
 

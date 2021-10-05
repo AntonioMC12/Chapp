@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
+
 /**
  * JavaFX App
  */
@@ -32,7 +34,8 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        //launch();
+    	JAXBManager.saveFile("C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\prueba.xml");
     }
 
 }

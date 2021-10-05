@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * class in which we will save a user's data
@@ -13,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "user")
+@XmlRootElement(name = "Usuario")
 public class user implements Serializable {
 
 	/**
@@ -21,9 +22,12 @@ public class user implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@XmlAttribute(name = "Usuairo")
 	private String name;
+	@XmlAttribute(name = "Género")
 	private Boolean gender;
-	private Boolean age; // To checks rooms +18
+	@XmlAttribute(name = "Mayor de edad")
+	public Boolean age; // To checks rooms +18
 
 	public user() {
 		super();

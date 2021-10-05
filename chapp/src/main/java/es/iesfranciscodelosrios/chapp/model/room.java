@@ -5,20 +5,23 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "room")
+@XmlRootElement(name = "Sala")
 public class room implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	// private static final int ID = 0;
-	@XmlElement(name="message",type= message.class)
+	@XmlAttribute(name="Nombre")
 	private String name;
+	@XmlElement(name="Mensajes")
 	private List<message> listMessage;
+	@XmlElement(name="Usuarios")
 	private List<user> listUser;
+	@XmlAttribute(name="+18")
 	private boolean under18;
 	
 	public room() {

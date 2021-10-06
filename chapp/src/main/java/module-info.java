@@ -12,5 +12,7 @@ module es.iesfranciscodelosrios.chapp {
     opens es.iesfranciscodelosrios.chapp.model to javafx.fxml,java.xml.bind;
     opens es.iesfranciscodelosrios.chapp.utils to com.sun.xml.bind;
     exports es.iesfranciscodelosrios.chapp;
+    exports es.iesfranciscodelosrios.chapp.model;
    
 }
+

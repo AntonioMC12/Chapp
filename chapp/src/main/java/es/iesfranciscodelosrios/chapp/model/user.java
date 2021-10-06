@@ -1,5 +1,4 @@
 package es.iesfranciscodelosrios.chapp.model;
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,12 +21,12 @@ public class user implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@XmlAttribute(name = "Usuario")
-	private String name;
+	@XmlAttribute(name = "Usuairo")
+	protected String name;
 	@XmlAttribute(name = "Género")
-	private Boolean gender;
+	protected Boolean gender;
 	@XmlAttribute(name = "Mayor de edad")
-	public Boolean age; // To checks rooms +18
+	protected Boolean age; // To checks rooms +18
 
 	public user() {
 		super();
@@ -63,4 +62,19 @@ public class user implements Serializable {
 	public void setAge(Boolean age) {
 		this.age = age;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		user other = (user) obj;
+		if (name != other.name)
+			return false;
+		return true;
+	}
+	
 }

@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
- * class in which we will save a user's data
+ * class in which we will save a user's data.
  * 
  * @author Abepuoh
  *

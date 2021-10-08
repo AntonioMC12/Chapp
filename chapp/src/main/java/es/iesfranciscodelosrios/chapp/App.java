@@ -23,9 +23,11 @@ import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
  * JavaFX App
  */
 public class App extends Application {
+	
+	public static final String RUTAANTONIO = "C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\chat.xml";
+	public static final String RUTAMIGUEL = "";
 
     private static Scene scene;
-
 	public static Stage rootstage;
 	
     @Override
@@ -45,22 +47,11 @@ public class App extends Application {
 		return fxmlLoader.load();
 	}
 
-	public void addMensajes(message m) {
-		mensajes.add(m);
-	}
-	
-	public void addUsuario(user u) {
-		usuarios.add(u);
-	}
-	
-	public void addSalas(room c) {
-		salas.add(c);
-	}
-
     public static void main(String[] args) {
         //launch();
 
-    	JAXBManager.saveFile("C:\\Users\\garci\\Desktop\\FOTOS\\ejemplo.xml");
+    	JAXBManager.saveFile(RUTAANTONIO);
+    	JAXBManager.readXML(RUTAANTONIO);
     }
 
 }

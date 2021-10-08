@@ -16,7 +16,7 @@ public class room implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@XmlAttribute(name="Sala")
+	@XmlAttribute(name="Nombre")
 	protected String name;
 	@XmlElementWrapper(name="Mensajes")
 	@XmlElement(name="Mensaje", type = message.class)
@@ -24,7 +24,8 @@ public class room implements Serializable {
 	@XmlElementWrapper(name="Usuarios")
 	@XmlElement(name="Usuario", type = user.class)
 	protected List<user> listUser;
-	@XmlAttribute(name="+18")
+	@XmlAttribute(name=":18")
+	//si al name :18 no le pongo los ':', peta.
 	protected boolean under18;
 	
 	public room() {

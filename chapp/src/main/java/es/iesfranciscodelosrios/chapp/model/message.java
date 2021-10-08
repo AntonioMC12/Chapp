@@ -58,6 +58,12 @@ public class message implements Serializable {
 	public void setMessages(String messages) {
 		this.messages = messages;
 	}
+
+	@Override
+	public String toString() {
+		return "message [timer=" + timer + ", user=" + user + ", messages=" + messages + "]";
+	}
+	
 	
 	
 }

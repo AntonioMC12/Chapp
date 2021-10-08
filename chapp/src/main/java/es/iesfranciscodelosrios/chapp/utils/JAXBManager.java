@@ -13,59 +13,67 @@ import javax.xml.bind.Marshaller;
 
 import javax.xml.bind.Unmarshaller;
 
+import es.iesfranciscodelosrios.chapp.model.chat;
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
 
 public class JAXBManager {
-	
+
 	static List<message> mensajes = new ArrayList<message>();
 	static List<user> usuarios = new ArrayList<user>();
-	
+	static List<room> salas = new ArrayList<room>();
+
 	public void addMensajes(message m) {
 		mensajes.add(m);
 	}
-	
+
 	public void addUsuario(user u) {
 		usuarios.add(u);
 	}
-	
+
 	public static void saveFile(String url) {
-		//solo para pruebas
-		user Usuario1 = new user("Francisquito",true,true);
-		message mensaje = new message(LocalDateTime.now(), Usuario1,"Mensaje de prueba");
+		// solo para pruebas
+		user Usuario1 = new user("Francisquito", true, true);
+		message mensaje = new message(LocalDateTime.now(), Usuario1, "Mensaje de prueba");
+
 		mensajes.add(mensaje);
 		usuarios.add(Usuario1);
-		room sala = new room("Sala 1", mensajes, usuarios, true);
-		System.out.println(sala);
-		
-		//marshaling
+
+		room sala = new room("Sala_1", mensajes, usuarios, true);
+
+		salas.add(sala);
+
+		chat chapp = new chat(usuarios, salas);
+
+		// marshaling
 		JAXBContext jaxbContext;
 		try {
-			//jaxbContext = JAXBContext.newInstance(room.class);
-			jaxbContext = JAXBContext.newInstance(room.class);
-		    Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-			 
-		    jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		     
-		    //Marshal the list in console
-		    //jaxbMarshaller.marshal(_instance, System.out);
-		     
-		    //Marshal the employees list in file
-		    jaxbMarshaller.marshal(sala, new File(url));
+			// jaxbContext = JAXBContext.newInstance(room.class);
+			jaxbContext = JAXBContext.newInstance(chat.class);
+			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Marshal the list in console
+			// jaxbMarshaller.marshal(_instance, System.out);
+
+			// Marshal the employees list in file
+			jaxbMarshaller.marshal(chapp, new File(url));
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
-	
+
 	public static void readXML(String url) {
-		
-		JAXBContext jaxbContext;
+
 		try {
-			jaxbContext = JAXBContext.newInstance(room.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(chat.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			jaxbUnmarshaller.unmarshal(new File(url));
+			chat chapp = (chat) jaxbUnmarshaller.unmarshal(new File(url));
+			System.out.println("unmarshal:");
+			System.out.println(chapp);
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -21,11 +21,11 @@ public class user implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@XmlAttribute(name = "Usuairo")
+	@XmlAttribute(name = "Usuario")
 	protected String name;
 	@XmlAttribute(name = "Género")
 	protected Boolean gender;
-	@XmlAttribute(name = "Mayor de edad")
+	@XmlAttribute(name = "Mayor_de_edad")
 	protected Boolean age; // To checks rooms +18
 
 	public user() {
@@ -76,5 +76,12 @@ public class user implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "user [name=" + name + ", gender=" + gender + ", age=" + age + "]";
+	}
+	
+	
 	
 }

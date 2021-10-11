@@ -28,6 +28,11 @@ public class user implements Serializable {
 	@XmlAttribute(name = "Mayor_de_edad")
 	protected Boolean age; // To checks rooms +18
 
+	public user(String name) {
+		super();
+		this.name = name;
+	}
+
 	public user() {
 		super();
 	}

@@ -1,37 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="681.0" style="-fx-border-color: #000000; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane layoutX="181.0" layoutY="26.0" prefHeight="391.0" prefWidth="497.0">
+<BorderPane fx:id="borderPane" maxHeight="620.0" maxWidth="1040.0" prefHeight="620.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.chatwindow.ChatController">
+   <center>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
-            <TextArea prefHeight="391.0" prefWidth="498.0" />
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="496.0" vbarPolicy="ALWAYS" vmin="1.0" vvalue="1.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <ListView fx:id="chatPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </ScrollPane>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" VBox.vgrow="NEVER">
+               <children>
+                  <TextArea fx:id="messageBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#sendMethod" prefHeight="16.0" prefWidth="698.0" promptText="ESCRIBE UN MENSAJE..." scaleShape="false" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendButtonAction" prefHeight="43.0" prefWidth="140.0" scaleShape="false" text="ENVIAR" textAlignment="CENTER" HBox.hgrow="NEVER" />
+                  <Button fx:id="recordBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMousePressed="#recordVoiceMessage">
+                     <graphic>
+                        <ImageView fx:id="microphoneImageView" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/enviar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
-      <ImageView fitHeight="444.0" fitWidth="382.0" layoutX="432.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/STAR%20WARs.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="444.0" fitWidth="382.0" layoutX="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/STAR%20WARs.jpg" />
-         </image>
-      </ImageView>
-      <ListView layoutY="26.0" prefHeight="425.0" prefWidth="182.0" style="-fx-border-color: #000000; -fx-background-color: #D3D3D3; -fx-border-width: 2;" />
-      <Label alignment="CENTER" prefHeight="26.0" prefWidth="182.0" style="-fx-border-color: #000000; -fx-background-color: #A9A9A9; -fx-border-width: 2;" text="USERS ONLINE" />
-      <TextField layoutX="188.0" layoutY="418.0" prefHeight="26.0" prefWidth="429.0" promptText="Escribre para enviar...." style="-fx-border-color: #000000;" />
-      <ImageView fitHeight="27.0" fitWidth="39.0" layoutX="624.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/enviar.png" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+      </VBox>
+   </center>
+   <left>
+      <VBox maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="onlineUsersHbox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="217.0" stylesheets="@../styles/ListViewStyle.css">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="219.0" text="USUARIOS ONLINE" textAlignment="CENTER">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </HBox>
+            <ListView prefHeight="491.0" prefWidth="218.0" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="69.0" prefWidth="1040.0" style="-fx-background-color: #7c9939;" BorderPane.alignment="CENTER">
+         <right>
+            <HBox prefHeight="24.0" prefWidth="30.0" stylesheets="@../styles/ButtonStyle.css" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </top>
+   <rotationAxis>
+      <Point3D />
+   </rotationAxis>
+</BorderPane>

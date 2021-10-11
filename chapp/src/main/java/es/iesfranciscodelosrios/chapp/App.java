@@ -22,7 +22,7 @@ public class App extends Application {
 	    @Override
 	  public void start(Stage stage) throws IOException {
 	      
-	    scene = new Scene(loadFXML("LogIn"), 344, 400);
+	    scene = new Scene(loadFXML("LogIn"), 1040, 620);
 	    stage.setScene(scene);
 	    stage.show();
 	  }
@@ -40,7 +40,7 @@ public class App extends Application {
 	        launch();
 
 	      //JAXBManager.saveFile(RUTAANTONIO);
-	      //JAXBManager.readXML(RUTAANTONIO);
+	      JAXBManager.saveFile(RUTAMIGUEL);
 	    }
 
 	}

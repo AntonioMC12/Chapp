@@ -32,7 +32,7 @@
                </image>
             </ImageView>
             <TextField fx:id="txtUser" layoutX="100.0" layoutY="233.0" promptText="Nombre Usuario" />
-            <Button fx:id="LogButt" layoutX="134.0" layoutY="280.0" mnemonicParsing="false" text="Inicia Sesion" />
+            <Button fx:id="LogButt" layoutX="134.0" layoutY="280.0" mnemonicParsing="false" onAction="#logUser" text="Inicia Sesion" />
          </children>
       </AnchorPane>
    </left>

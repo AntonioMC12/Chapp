@@ -3,6 +3,8 @@ package es.iesfranciscodelosrios.chapp;
 import java.io.IOException;
 
 import es.iesfranciscodelosrios.chapp.model.user;
+import es.iesfranciscodelosrios.chapp.model.userDAO;
+import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,10 +28,13 @@ public class logInController {
 		String name = this.txtUser.getText();
 		this.txtUser.clear();
 		
-		if (name != null && name.length() >4 ) {
+		if (name != null && name.length() >3){
 		user data = new user(name);
+		userDAO list = new userDAO();
+		list.addUser(data);
+		
 		//METERLO EN LA SALA.
-		App.setRoot("chatRoom");
+		App.setRoot("mainAndCreatefxml");
 		} else {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText(null);

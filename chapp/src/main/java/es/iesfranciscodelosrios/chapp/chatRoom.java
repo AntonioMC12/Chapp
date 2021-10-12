@@ -1,8 +1,10 @@
 package es.iesfranciscodelosrios.chapp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import es.iesfranciscodelosrios.chapp.model.chat;
+import es.iesfranciscodelosrios.chapp.model.chatDAO;
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.roomDAO;
@@ -33,7 +35,8 @@ public class chatRoom {
 
 	@FXML
 	protected void initialize() {
-		room = roomDAO.loadRoom(App.RUTAANTONIO, App.roomIndex);
+		chapp = chatDAO.loadChat(App.RUTAANTONIO);
+		room = chapp.getRooms().get(App.roomIndex);
 		loadMessages();
 		loadUsers();
 	}
@@ -46,6 +49,17 @@ public class chatRoom {
 	private void loadUsers() {
 		ObservableList<user> items = FXCollections.observableArrayList(room.getListUser());
 		userOnline.setItems(items);
+	}
+	
+	@FXML
+	private void sendMessage() {
+		if(messageBox.getText() != null && !messageBox.getText().isEmpty()) {
+			message dummy = new message(LocalDateTime.now(), App.currentUser, messageBox.getText());
+			room.addMessage(dummy);
+			loadMessages();
+			chatDAO.saveChat(App.RUTAANTONIO, chapp);
+			this.messageBox.clear();
+		}
 	}
 
 }

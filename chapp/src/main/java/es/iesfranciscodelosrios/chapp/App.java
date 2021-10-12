@@ -15,6 +15,7 @@ public class App extends Application {
 	  
 	  public static final String RUTAANTONIO = "C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\chat.xml";
 	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS";
+	  public static int roomIndex = 0;
 
 	  private static Scene scene;
 	  public static Stage rootstage;
@@ -22,7 +23,7 @@ public class App extends Application {
 	    @Override
 	  public void start(Stage stage) throws IOException {
 	      
-	    scene = new Scene(loadFXML("LogIn"), 1040, 620);
+	    scene = new Scene(loadFXML("chatRoom"), 1040, 620);
 	    stage.setScene(scene);
 	    stage.show();
 	  }
@@ -37,10 +38,10 @@ public class App extends Application {
 	  }
 
 	    public static void main(String[] args) {
-	        launch();
+	      launch();
 
 	      //JAXBManager.saveFile(RUTAANTONIO);
-	      JAXBManager.saveFile(RUTAMIGUEL);
+	      //JAXBManager.saveFile(RUTAMIGUEL);
 	    }
 
 	}

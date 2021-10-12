@@ -7,23 +7,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iesfranciscodelosrios.chapp.logInController">
    <left>
       <AnchorPane prefHeight="375.0" prefWidth="307.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="445.0" fitWidth="228.0" layoutX="119.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/STAR%20WARs.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="400.0" fitWidth="229.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/STAR%20WARs.jpg" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="272.0" fitWidth="337.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/CHAT.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUser" layoutX="100.0" layoutY="233.0" promptText="Nombre Usuario" />
-            <Button fx:id="LogButt" layoutX="134.0" layoutY="280.0" mnemonicParsing="false" onAction="#logUser" text="Inicia Sesion" />
             <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="59.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/user.png" />
                </image>
             </ImageView>
+            <TextField fx:id="txtUser" layoutX="100.0" layoutY="233.0" promptText="Nombre Usuario" />
+            <Button fx:id="LogButt" layoutX="134.0" layoutY="280.0" mnemonicParsing="false" onAction="#logUser" text="Inicia Sesion" />
          </children>
       </AnchorPane>
    </left>

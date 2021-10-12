@@ -1,5 +1,8 @@
 package es.iesfranciscodelosrios.chapp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class userDAO extends user{
 
 	private static final long serialVersionUID = 1L;
@@ -30,4 +33,12 @@ public class userDAO extends user{
 		return result;		
 	}
 	
+	public int SavePlayer(user aux) {
+		int save = 0;
+		List<user> usuarios = new ArrayList<user>();
+		if (aux != null) {
+			usuarios.add(aux);
+		}
+		return save;
+	}
 }

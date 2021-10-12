@@ -33,7 +33,7 @@ public class App extends Application {
     @Override
 	public void start(Stage stage) throws IOException {
     	
-		scene = new Scene(loadFXML("LogIn"), 337, 272);
+		scene = new Scene(loadFXML("LogIn"), 344, 400);
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -48,10 +48,10 @@ public class App extends Application {
 	}
 
     public static void main(String[] args) {
-        //launch();
+        launch();
 
-    	JAXBManager.saveFile(RUTAANTONIO);
-    	JAXBManager.readXML(RUTAANTONIO);
+    	//JAXBManager.saveFile(RUTAANTONIO);
+    	//JAXBManager.readXML(RUTAANTONIO);
     }
 
 }

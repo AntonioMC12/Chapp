@@ -31,9 +31,12 @@ public class chatRoom {
 
 	private chat chapp;
 	private room room;
+	private List<user> users;
+	private List<room> rooms;
+
 	@FXML
 	protected void initialize() {
-		chapp = chatDAO.loadChat(App.RUTAMIGUEL);
+		chapp = chatDAO.loadChat(App.RUTAANTONIO);
 		room = chapp.getRooms().get(App.roomIndex);
 		loadMessages();
 		loadUsers();
@@ -59,5 +62,4 @@ public class chatRoom {
 			this.messageBox.clear();
 		}
 	}
-
 }

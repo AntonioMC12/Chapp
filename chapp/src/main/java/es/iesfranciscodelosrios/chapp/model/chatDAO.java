@@ -11,5 +11,4 @@ public class chatDAO {
 	public static void saveChat(String url, chat aux) {
 		JAXBManager.saveFile(url, aux);
 	}
-
 }

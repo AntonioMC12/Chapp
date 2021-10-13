@@ -30,7 +30,7 @@
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </TextArea>
-                  <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="43.0" prefWidth="140.0" scaleShape="false" text="ENVIAR" textAlignment="CENTER" HBox.hgrow="NEVER" />
+                  <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" prefHeight="43.0" prefWidth="140.0" scaleShape="false" text="ENVIAR" textAlignment="CENTER" HBox.hgrow="NEVER" />
                   <ImageView fx:id="microphoneImageView" fitHeight="48.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/enviar.png" />

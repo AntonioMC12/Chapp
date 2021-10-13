@@ -3,10 +3,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 import es.iesfranciscodelosrios.chapp.model.chat;
+import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
 import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 
@@ -20,6 +22,7 @@ public class App extends Application {
 	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS\\chat.xml";
 	  public static int roomIndex =0;
 	  public static user currentUser;
+	  public static room selected;
 	  public static chat chapp;
 	  private static Scene scene;
 	  public static Stage rootstage;
@@ -27,7 +30,7 @@ public class App extends Application {
 	    @Override
 	  public void start(Stage stage) throws IOException {
 	      
-	    scene = new Scene(loadFXML("mainAndCreatefxml"), 1040, 620);
+	    scene = new Scene(loadFXML("logIn"), 1040, 620);
 	    stage.setScene(scene);
 	    stage.show();
 	  }

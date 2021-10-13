@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -35,7 +36,7 @@ public class mainController {
 	private CheckBox over18;
 	
 	private chat chapp;
-	private room room;
+
 	
 	@FXML
 	public void initialize() {
@@ -51,7 +52,6 @@ public class mainController {
 		String name = this.txtName.getText();
 		if(name != null && name.length()>4){
 			room data= new room(name, listMessage, ListUsers, true);
-			roomDAO.
 			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 			alert.setHeaderText(null);
 			alert.setTitle("Enhorabuena");
@@ -66,9 +66,12 @@ public class mainController {
 		}
 	}
 	@FXML
-	protected void goChat(ActionEvent Event) {
-	room name = chatPane.getSelectionModel().getSelectedItem();	
-	}
+	public void goChat(MouseEvent e) throws IOException { 
+        room click = chatPane.getSelectionModel().getSelectedItem();	
+        App.selected = click; 
+        App.setRoot("chatRoom");
+   }
+	
 	@FXML
 	private void loadChats() {
 		ObservableList<room> items = FXCollections.observableArrayList(chapp.getRooms());

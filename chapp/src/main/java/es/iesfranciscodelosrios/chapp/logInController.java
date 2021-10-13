@@ -32,7 +32,7 @@ public class logInController {
 		chapp = chatDAO.loadChat(App.RUTAMIGUEL);
 		//room = chapp.getRooms().get(App.roomIndex);
 		users = chapp.getUsers();
-	}
+		}
 
 	@FXML
 	protected void logUser(ActionEvent Event) throws IOException {

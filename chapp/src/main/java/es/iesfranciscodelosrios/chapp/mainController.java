@@ -70,6 +70,7 @@ public class mainController {
         room click = chatPane.getSelectionModel().getSelectedItem();	
         App.selected = click; 
         App.setRoot("chatRoom");
+        
    }
 	
 	@FXML

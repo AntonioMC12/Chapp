@@ -71,14 +71,16 @@ public class room implements Serializable {
 	public void setUnder18(boolean under18) {
 		this.under18 = under18;
 	}
+	
+	public void addMessage(message ms) {
+		this.listMessage.add(ms);
+	}
 
 	@Override
 	public String toString() {
-		return "room [name=" + name + ", listMessage=" + listMessage + ", listUser=" + listUser + ", under18=" + under18
-				+ "]";
+		return  name ;
 	}
 	
 	
 	
 }
-	

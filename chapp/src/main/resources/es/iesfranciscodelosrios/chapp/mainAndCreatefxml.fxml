@@ -37,8 +37,8 @@
                      </image>
                   </ImageView>
                   <Button layoutX="29.0" layoutY="315.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="38.0" prefWidth="73.0" text="Crear" />
-                  <Button layoutX="165.0" layoutY="315.0" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="73.0" text="Salir" />
                   <CheckBox layoutX="89.0" layoutY="189.0" mnemonicParsing="false" text="Mayor de edad" />
+                  <Button layoutX="165.0" layoutY="315.0" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="73.0" text="Salir" />
                </children>
             </AnchorPane>
          </children>
@@ -57,7 +57,7 @@
    <right>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="550.0" prefWidth="932.0" style="-fx-border-color: #000000;" vbarPolicy="ALWAYS" vmin="1.0" vvalue="1.0" BorderPane.alignment="CENTER">
          <content>
-            <ListView fx:id="chatPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onEditStart="#fillListView" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="chatPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onEditStart="#loadChats" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
    </right>

@@ -15,15 +15,15 @@ import es.iesfranciscodelosrios.chapp.utils.LocalDateAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "message")
 public class message implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	private LocalDateTime timer;
-	@XmlElement(name = "Usuairo",type = user.class)
+	@XmlElement(name = "Usuairo", type = user.class)
 	private user user;
 	@XmlElement(name = "Mensaje")
 	private String messages;
-	
+
 	public message() {
 		super();
 	}
@@ -61,9 +61,7 @@ public class message implements Serializable {
 
 	@Override
 	public String toString() {
-		return "message [timer=" + timer + ", user=" + user + ", messages=" + messages + "]";
+		return "[ " + timer + ", "+ user + "]      " + messages ;
 	}
-	
-	
-	
+
 }

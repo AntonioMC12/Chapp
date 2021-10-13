@@ -5,6 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+
+import es.iesfranciscodelosrios.chapp.model.chat;
+import es.iesfranciscodelosrios.chapp.model.user;
 import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 
 
@@ -14,15 +17,17 @@ import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 public class App extends Application {
 	  
 	  public static final String RUTAANTONIO = "C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\chat.xml";
-	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS";
-
+	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS\\chat.xml";
+	  public static int roomIndex =0;
+	  public static user currentUser;
+	  public static chat chapp;
 	  private static Scene scene;
 	  public static Stage rootstage;
 	  
 	    @Override
 	  public void start(Stage stage) throws IOException {
 	      
-	    scene = new Scene(loadFXML("LogIn"), 1040, 620);
+	    scene = new Scene(loadFXML("mainAndCreatefxml"), 1040, 620);
 	    stage.setScene(scene);
 	    stage.show();
 	  }
@@ -37,10 +42,10 @@ public class App extends Application {
 	  }
 
 	    public static void main(String[] args) {
-	        launch();
+	      launch();
 
 	      //JAXBManager.saveFile(RUTAANTONIO);
-	      JAXBManager.saveFile(RUTAMIGUEL);
+	      //JAXBManager.saveFile(RUTAMIGUEL);
 	    }
 
 	}

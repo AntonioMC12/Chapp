@@ -32,20 +32,20 @@ public class JAXBManager {
 		usuarios.add(u);
 	}
 
-	public static void saveFile(String url) {
-		// solo para pruebas
-		user Usuario1 = new user("Francisquito", true, true);
-		message mensaje = new message(LocalDateTime.now(), Usuario1, "Mensaje de prueba");
-
-		mensajes.add(mensaje);
-		usuarios.add(Usuario1);
-
-		room sala = new room("Sala_1", mensajes, usuarios, true);
-
-		salas.add(sala);
-
-		chat chapp = new chat(usuarios, salas);
-
+	public static void saveFile(String url, chat chapp) {
+		/*
+		 * solo para pruebas //user Usuario1 = new user("Francisquito", true, true);
+		 * //message mensaje = new message(LocalDateTime.now(), Usuario1,
+		 * "Mensaje de prueba");
+		 * 
+		 * mensajes.add(mensaje); usuarios.add(Usuario1);
+		 * 
+		 * room sala = new room("Sala_1", mensajes, usuarios, true);
+		 * 
+		 * salas.add(sala);
+		 * 
+		 * chat chapp = new chat(usuarios, salas);
+		 */
 		// marshaling
 		JAXBContext jaxbContext;
 		try {
@@ -66,17 +66,25 @@ public class JAXBManager {
 		}
 	}
 
-	public static void readXML(String url) {
+	public static chat readXML(String url) throws NullPointerException{
+		chat chapp = new chat();
 
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(chat.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			chat chapp = (chat) jaxbUnmarshaller.unmarshal(new File(url));
-			System.out.println("unmarshal:");
-			System.out.println(chapp);
+			chapp = (chat) jaxbUnmarshaller.unmarshal(new File(url));
+			// System.out.println("unmarshal:");
+			// System.out.println(chapp);
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if (chapp != null) {
+			return chapp;
+		}else {
+			return null;
+		}
+		
 	}
 }
+

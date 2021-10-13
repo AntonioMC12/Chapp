@@ -1,7 +1,12 @@
 package es.iesfranciscodelosrios.chapp;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import es.iesfranciscodelosrios.chapp.model.chat;
+import es.iesfranciscodelosrios.chapp.model.chatDAO;
+import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
 import es.iesfranciscodelosrios.chapp.model.userDAO;
 import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
@@ -17,24 +22,29 @@ public class logInController {
 	private TextField txtUser;
 	@FXML
 	private Button LogButt;
-
+	
+	private chat chapp;
+	private room room;
+	private List<user> users;
+	
 	@FXML
 	public void initialize() {
-
+		chapp = chatDAO.loadChat(App.RUTAMIGUEL);
+		//room = chapp.getRooms().get(App.roomIndex);
+		users = chapp.getUsers();
 	}
 
 	@FXML
 	protected void logUser(ActionEvent Event) throws IOException {
 		String name = this.txtUser.getText();
 		this.txtUser.clear();
-		
-		if (name != null && name.length() >3){
 		user data = new user(name);
-		userDAO list = new userDAO();
-		list.addUser(data);
-		
-		//METERLO EN LA SALA.
-		App.setRoot("mainAndCreatefxml");
+		if (name != null && name.length() > 3 &&
+				chapp.getUsers().contains(data)){
+			//CHECK
+			users.add(data);
+			chatDAO.saveChat(App.RUTAMIGUEL, chapp);
+			App.setRoot("mainAndCreatefxml");
 		} else {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText(null);

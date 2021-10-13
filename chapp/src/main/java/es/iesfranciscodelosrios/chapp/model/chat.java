@@ -31,6 +31,11 @@ public class chat implements Serializable{
 		this.users = users;
 		this.rooms = rooms;
 	}
+	
+	public chat(List<user> users) {
+		super();
+		this.users = users;
+	}
 
 	public List<user> getUsers() {
 		return users;

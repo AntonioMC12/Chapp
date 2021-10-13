@@ -78,11 +78,9 @@ public class room implements Serializable {
 
 	@Override
 	public String toString() {
-		return "room [name=" + name + ", listMessage=" + listMessage + ", listUser=" + listUser + ", under18=" + under18
-				+ "]";
+		return  name ;
 	}
 	
 	
 	
 }
-	

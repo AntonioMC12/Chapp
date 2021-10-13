@@ -9,6 +9,7 @@ import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.roomDAO;
 import es.iesfranciscodelosrios.chapp.model.user;
+import es.iesfranciscodelosrios.chapp.utils.refresh;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -56,10 +57,9 @@ public class chatRoom {
 		if(messageBox.getText() != null && !messageBox.getText().isEmpty()) {
 			message dummy = new message(LocalDateTime.now(), App.currentUser, messageBox.getText());
 			room.addMessage(dummy);
-			loadMessages();
+			refresh.refresqueshion();
 			chatDAO.saveChat(App.RUTAANTONIO, chapp);
 			this.messageBox.clear();
 		}
 	}
-
 }

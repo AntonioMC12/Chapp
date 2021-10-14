@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 import es.iesfranciscodelosrios.chapp.model.chat;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
@@ -24,6 +25,7 @@ public class App extends Application {
 	  public static user currentUser;
 	  public static chat chapp;
 	  public static room selected;
+
 	  private static Scene scene;
 	  public static Stage rootstage;
 	  

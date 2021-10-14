@@ -30,7 +30,7 @@ public class logInController {
 	public void initialize() {
 		chapp = chatDAO.loadChat(App.RUTAANTONIO);
 		users = chapp.getUsers();
-	}
+		}
 
 	@FXML
 	protected void logUser(ActionEvent Event) throws IOException {

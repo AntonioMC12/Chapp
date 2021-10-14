@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -22,53 +23,41 @@ import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
  * JavaFX App
  */
 public class App extends Application {
+	  
+	  public static final String RUTAANTONIO = "C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\chat.xml";
+	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS\\chat.xml";
+	  public static int roomIndex =0;
+	  public static user currentUser;
+	  public static chat chapp;
+	  public static room selected;
 
-	public static final String RUTAANTONIO = "C:\\Users\\Antonio\\Desktop\\Cosas_Antonio\\chat.xml";
-	public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS\\chat.xml";
-	public static int roomIndex = 0;
-	public static user currentUser;
-	public static chat chapp;
-	public static room selected;
+	  private static Scene scene;
+	  public static Stage rootstage;
+	  
+	    @Override
+	  public void start(Stage stage) throws IOException {
+	      
 
-	private static Scene scene;
-	public static Stage rootstage;
+	    scene = new Scene(loadFXML("chatRoom"), 1040, 620);
 
-	@Override
-	public void start(Stage stage) throws IOException {
+	    stage.setScene(scene);
+	    stage.show();
+	  }
 
-		scene = new Scene(loadFXML("logIn"), 1040, 620);
+	  public static void setRoot(String fxml) throws IOException {
+	    scene.setRoot(loadFXML(fxml));
+	  }
 
-		stage.setScene(scene);
-		stage.show();
+	  private static Parent loadFXML(String fxml) throws IOException {
+	    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+	    return fxmlLoader.load();
+	  }
+
+	    public static void main(String[] args) {
+	      launch();
+
+	      //JAXBManager.saveFile(RUTAANTONIO);
+	      //JAXBManager.saveFile(RUTAMIGUEL);
+	    }
+
 	}
-
-	public static void setRoot(String fxml) throws IOException {
-		scene.setRoot(loadFXML(fxml));
-	}
-
-	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load();
-	}
-
-	public static void setCurrentUser(user u) {
-		currentUser = u;
-	}
-
-	public static void setRoomIndex(int i) {
-		roomIndex = i;
-	}
-	
-	private void exit() {
-		chapp.deleteUser(App.currentUser);
-		chatDAO.saveChat(App.RUTAANTONIO, chapp);
-	}
-	
-	public static void main(String[] args) {
-		launch();
-
-		// JAXBManager.saveFile(RUTAANTONIO);
-		// JAXBManager.saveFile(RUTAMIGUEL);
-	}
-
-}

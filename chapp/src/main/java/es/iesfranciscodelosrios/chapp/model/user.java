@@ -1,5 +1,6 @@
 package es.iesfranciscodelosrios.chapp.model;
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -68,6 +69,13 @@ public class user implements Serializable {
 		this.age = age;
 	}
 	
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, gender, name);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,9 +85,8 @@ public class user implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		user other = (user) obj;
-		if (name != other.name)
-			return false;
-		return true;
+		return Objects.equals(age, other.age) && Objects.equals(gender, other.gender)
+				&& Objects.equals(name, other.name);
 	}
 
 	@Override

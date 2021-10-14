@@ -52,6 +52,26 @@ public class chat implements Serializable{
 	public void setRooms(List<room> rooms) {
 		this.rooms = rooms;
 	}
+	
+	public void addUser(user u) {
+		this.users.add(u);
+	}
+	
+	public void addRoom(room r) {
+		this.rooms.add(r);
+	}
+	
+	public void deleteUser(user u) {
+		if(this.users.contains(u)) {
+			this.users.remove(u);
+		}
+	}
+	
+	public void deleteRoom(room r) {
+		if(this.rooms.contains(r)) {
+			this.rooms.remove(r);
+		}
+	}
 
 	@Override
 	public String toString() {

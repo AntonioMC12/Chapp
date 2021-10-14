@@ -8,7 +8,6 @@ import es.iesfranciscodelosrios.chapp.model.chat;
 import es.iesfranciscodelosrios.chapp.model.chatDAO;
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
-import es.iesfranciscodelosrios.chapp.model.roomDAO;
 import es.iesfranciscodelosrios.chapp.model.user;
 import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 import javafx.collections.FXCollections;
@@ -16,7 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -32,18 +31,20 @@ public class mainController {
 	private TextField txtName;
 	@FXML
 	private ListView<room> chatPane;
-	@FXML 
-	private CheckBox over18;
-	
+	@FXML
+	private Button exitButt;
+	@FXML
+	private Button createRoomButt;
+
 	private chat chapp;
 
-	
 	@FXML
 	public void initialize() {
-		chapp = chatDAO.loadChat(App.RUTAMIGUEL);
+		chapp = chatDAO.loadChat(App.RUTAANTONIO);
 		loadChats();
+
 	}
-	
+
 	@FXML
 	protected void createRoom(ActionEvent Event) {
 		List<message> listMessage = new ArrayList<message>();
@@ -56,7 +57,8 @@ public class mainController {
 			alert.setTitle("Enhorabuena");
 			alert.setContentText("La sala ha sido creada correctamente");
 			alert.showAndWait();
-		}else {
+			chatDAO.saveChat(App.RUTAANTONIO, chapp);
+		} else {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText(null);
 			alert.setTitle("Error al crear la sala");
@@ -64,6 +66,7 @@ public class mainController {
 			alert.showAndWait();
 		}
 	}
+
 	  @FXML
 	  public void goChat(MouseEvent e) throws IOException {
 	    room click = chatPane.getSelectionModel().getSelectedItem();
@@ -77,16 +80,19 @@ public class mainController {
 	      alert.showAndWait();
 	    }
 	  }
-	
+  
 	@FXML
 	private void loadChats() {
 		ObservableList<room> items = FXCollections.observableArrayList(chapp.getRooms());
 		chatPane.setItems(items);
 	}
+
 	@FXML
 	private void exit(ActionEvent event) {
 		try {
 			App.setRoot("logIn");
+			chapp.deleteUser(App.currentUser);
+			chatDAO.saveChat(App.RUTAANTONIO, chapp);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

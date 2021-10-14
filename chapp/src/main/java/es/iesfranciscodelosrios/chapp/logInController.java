@@ -22,35 +22,34 @@ public class logInController {
 	private TextField txtUser;
 	@FXML
 	private Button LogButt;
-	
+
 	private chat chapp;
-	private room room;
 	private List<user> users;
-	
+
 	@FXML
 	public void initialize() {
-		chapp = chatDAO.loadChat(App.RUTAMIGUEL);
-		//room = chapp.getRooms().get(App.roomIndex);
+		chapp = chatDAO.loadChat(App.RUTAANTONIO);
 		users = chapp.getUsers();
 	}
 
 	@FXML
 	protected void logUser(ActionEvent Event) throws IOException {
 		String name = this.txtUser.getText();
-		this.txtUser.clear();
-		user data = new user(name);
-		if (name != null && name.length() > 3 &&
-				chapp.getUsers().contains(data)){
-			//CHECK
-			users.add(data);
-			chatDAO.saveChat(App.RUTAMIGUEL, chapp);
+		user data = new user(name,true,true);
+		if (name != null && name.length() > 3 && !chapp.getUsers().contains(data)) {
+			chapp.addUser(data);
+			chatDAO.saveChat(App.RUTAANTONIO, chapp);
 			App.setRoot("mainAndCreatefxml");
+			App.currentUser = data;
+			System.out.println(App.currentUser);
+			this.txtUser.clear();
 		} else {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText(null);
 			alert.setTitle("Error de acceso");
-			alert.setContentText("Has introducido mal algun dato");
+			alert.setContentText("Has introducido mal algun dato o el usuario está en uso.");
 			alert.showAndWait();
+			this.txtUser.clear();
 		}
 	}
 }

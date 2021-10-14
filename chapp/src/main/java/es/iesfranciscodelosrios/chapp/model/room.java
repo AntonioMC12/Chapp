@@ -75,6 +75,16 @@ public class room implements Serializable {
 	public void addMessage(message ms) {
 		this.listMessage.add(ms);
 	}
+	
+	public void addUser(user u) {
+		this.listUser.add(u);
+	}
+	
+	public void removeUser(user u) {
+		if(this.listUser.contains(u)) {
+			this.listUser.remove(u);
+		}
+	}
 
 	@Override
 	public String toString() {

@@ -2,26 +2,20 @@ package es.iesfranciscodelosrios.chapp;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import es.iesfranciscodelosrios.chapp.model.chat;
 import es.iesfranciscodelosrios.chapp.model.chatDAO;
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
-import es.iesfranciscodelosrios.chapp.model.roomDAO;
 import es.iesfranciscodelosrios.chapp.model.user;
-import es.iesfranciscodelosrios.chapp.utils.refresh;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 
 public class chatRoom extends Thread {
@@ -43,8 +37,8 @@ public class chatRoom extends Thread {
 	@FXML
 	protected void initialize() {
 		chapp = chatDAO.loadChat(App.RUTAANTONIO);
-		room = chapp.getRooms().get(App.roomIndex);
-		System.out.println(room.getListMessage());
+		chapp.getRooms().get(App.roomIndex).addUser(App.currentUser);
+		chatDAO.saveChat(App.RUTAANTONIO, chapp);
 		loadMessages();
 		loadUsers();
 		if (chapp != null) {
@@ -82,6 +76,8 @@ public class chatRoom extends Thread {
 
 		try {
 			App.setRoot("mainAndCreatefxml");
+			chapp.getRooms().get(App.roomIndex).removeUser(App.currentUser);
+			chatDAO.saveChat(App.RUTAANTONIO, chapp);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,14 +89,16 @@ public class chatRoom extends Thread {
 		refresqueshion();
 	}
 
-	public static void refresqueshion() {
+	public void refresqueshion() {
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
 			public void run() {
 				Platform.runLater(() -> {
 					System.out.println("LEO");
-					chatDAO.saveChat(App.RUTAANTONIO, chapp);
 					chapp = chatDAO.loadChat(App.RUTAANTONIO);
+					loadMessages();
+					loadUsers();
+					chatDAO.saveChat(App.RUTAANTONIO, chapp);
 					room = chapp.getRooms().get(App.roomIndex);
 				});
 			}

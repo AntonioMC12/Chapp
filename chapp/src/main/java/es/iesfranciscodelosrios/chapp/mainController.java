@@ -9,7 +9,6 @@ import es.iesfranciscodelosrios.chapp.model.chatDAO;
 import es.iesfranciscodelosrios.chapp.model.message;
 import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
-import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,6 +51,9 @@ public class mainController {
 		String name = this.txtName.getText();
 		if (name != null && name.length() > 4) {
 			room data = new room(name, listMessage, ListUsers, true);
+			chapp.addRoom(data);
+			loadChats();
+			this.txtName.clear();
 			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 			alert.setHeaderText(null);
 			alert.setTitle("Enhorabuena");

@@ -1,15 +1,9 @@
 package es.iesfranciscodelosrios.chapp;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import es.iesfranciscodelosrios.chapp.model.chat;
 import es.iesfranciscodelosrios.chapp.model.chatDAO;
-import es.iesfranciscodelosrios.chapp.model.room;
 import es.iesfranciscodelosrios.chapp.model.user;
-import es.iesfranciscodelosrios.chapp.model.userDAO;
-import es.iesfranciscodelosrios.chapp.utils.JAXBManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,18 +18,16 @@ public class logInController {
 	private Button LogButt;
 
 	private chat chapp;
-	private List<user> users;
 
 	@FXML
 	public void initialize() {
 		chapp = chatDAO.loadChat(App.RUTAANTONIO);
-		users = chapp.getUsers();
-		}
+	}
 
 	@FXML
 	protected void logUser(ActionEvent Event) throws IOException {
 		String name = this.txtUser.getText();
-		user data = new user(name,true,true);
+		user data = new user(name, true, true);
 		if (name != null && name.length() > 3 && !chapp.getUsers().contains(data)) {
 			chapp.addUser(data);
 			chatDAO.saveChat(App.RUTAANTONIO, chapp);

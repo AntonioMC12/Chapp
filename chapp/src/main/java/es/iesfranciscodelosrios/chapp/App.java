@@ -22,15 +22,17 @@ public class App extends Application {
 	  public static final String RUTAMIGUEL = "C:\\Users\\garci\\Desktop\\FOTOS\\chat.xml";
 	  public static int roomIndex =0;
 	  public static user currentUser;
-	  public static room selected;
 	  public static chat chapp;
+	  public static room selected;
 	  private static Scene scene;
 	  public static Stage rootstage;
 	  
 	    @Override
 	  public void start(Stage stage) throws IOException {
 	      
-	    scene = new Scene(loadFXML("logIn"), 1040, 620);
+
+	    scene = new Scene(loadFXML("chatRoom"), 1040, 620);
+
 	    stage.setScene(scene);
 	    stage.show();
 	  }

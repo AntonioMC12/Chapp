@@ -65,13 +65,19 @@ public class mainController {
 			alert.showAndWait();
 		}
 	}
-	@FXML
-	public void goChat(MouseEvent e) throws IOException { 
-        room click = chatPane.getSelectionModel().getSelectedItem();	
-        App.selected = click; 
-        App.setRoot("chatRoom");
-        
-   }
+	  @FXML
+	  public void goChat(MouseEvent e) throws IOException {
+	    room click = chatPane.getSelectionModel().getSelectedItem();
+	    if (chapp.getRooms().contains(click)) {
+	      App.selected = click;
+	      App.setRoot("chatRoom");
+	    } else {
+	      Alert alert = new Alert(Alert.AlertType.ERROR);
+	      alert.setHeaderText(null);
+	      alert.setTitle("Error al cargar la sala");
+	      alert.showAndWait();
+	    }
+	  }
 	
 	@FXML
 	private void loadChats() {

@@ -24,7 +24,7 @@ public class room implements Serializable {
 	@XmlElementWrapper(name="Usuarios")
 	@XmlElement(name="Usuario", type = user.class)
 	protected List<user> listUser;
-	@XmlAttribute(name=":18")
+	@XmlAttribute(name="OverEdad")
 	//si al name :18 no le pongo los ':', peta.
 	protected boolean under18;
 	

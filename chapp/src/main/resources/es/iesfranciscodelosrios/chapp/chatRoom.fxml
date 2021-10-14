@@ -28,17 +28,8 @@
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </TextArea>
-<<<<<<< HEAD
                   <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" prefHeight="43.0" prefWidth="86.0" scaleShape="false" text="ENVIAR" textAlignment="CENTER" HBox.hgrow="NEVER" />
                   <Button fx:id="exit" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exit" prefHeight="43.0" prefWidth="86.0" scaleShape="false" text="SALIR" textAlignment="CENTER" />
-=======
-                  <Button fx:id="buttonSend" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" prefHeight="43.0" prefWidth="140.0" scaleShape="false" text="ENVIAR" textAlignment="CENTER" HBox.hgrow="NEVER" />
-                  <ImageView fx:id="microphoneImageView" fitHeight="48.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/enviar.png" />
-                     </image>
-                  </ImageView>
->>>>>>> 24880f6e3fe433f277e29c737368e797a3176d4e
                </children>
             </HBox>
          </children>

@@ -38,7 +38,7 @@ public class App extends Application {
 	  public void start(Stage stage) throws IOException {
 	      
 
-	    scene = new Scene(loadFXML("chatRoom"), 1040, 620);
+	    scene = new Scene(loadFXML("logIn"), 1040, 620);
 
 	    stage.setScene(scene);
 	    stage.show();

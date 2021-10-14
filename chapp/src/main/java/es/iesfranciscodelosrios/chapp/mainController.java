@@ -47,8 +47,7 @@ public class mainController {
 	@FXML
 	protected void createRoom(ActionEvent Event) {
 		List<message> listMessage = new ArrayList<message>();
-		List<user>ListUsers = new ArrayList<user>();;
-		
+		List<user>ListUsers = new ArrayList<user>();
 		String name = this.txtName.getText();
 		if(name != null && name.length()>4){
 			room data= new room(name, listMessage, ListUsers, true);

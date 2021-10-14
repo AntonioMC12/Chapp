@@ -48,10 +48,10 @@ public class mainController {
 	@FXML
 	protected void createRoom(ActionEvent Event) {
 		List<message> listMessage = new ArrayList<message>();
-		List<user>ListUsers = new ArrayList<user>();
+		List<user> ListUsers = new ArrayList<user>();
 		String name = this.txtName.getText();
-		if(name != null && name.length()>4){
-			room data= new room(name, listMessage, ListUsers, true);
+		if (name != null && name.length() > 4) {
+			room data = new room(name, listMessage, ListUsers, true);
 			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 			alert.setHeaderText(null);
 			alert.setTitle("Enhorabuena");
@@ -67,20 +67,20 @@ public class mainController {
 		}
 	}
 
-	  @FXML
-	  public void goChat(MouseEvent e) throws IOException {
-	    room click = chatPane.getSelectionModel().getSelectedItem();
-	    if (chapp.getRooms().contains(click)) {
-	      App.selected = click;
-	      App.setRoot("chatRoom");
-	    } else {
-	      Alert alert = new Alert(Alert.AlertType.ERROR);
-	      alert.setHeaderText(null);
-	      alert.setTitle("Error al cargar la sala");
-	      alert.showAndWait();
-	    }
-	  }
-  
+	@FXML
+	public void goChat(MouseEvent e) throws IOException {
+		room click = chatPane.getSelectionModel().getSelectedItem();
+		if (chapp.getRooms().contains(click)) {	
+			App.roomIndex = chapp.getRooms().indexOf(click);
+			App.setRoot("chatRoom");
+		} else {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText(null);
+			alert.setTitle("Error al cargar la sala");
+			alert.showAndWait();
+		}
+	}
+
 	@FXML
 	private void loadChats() {
 		ObservableList<room> items = FXCollections.observableArrayList(chapp.getRooms());

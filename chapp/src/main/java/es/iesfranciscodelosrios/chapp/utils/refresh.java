@@ -3,6 +3,8 @@ package es.iesfranciscodelosrios.chapp.utils;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import es.iesfranciscodelosrios.chapp.App;
+import es.iesfranciscodelosrios.chapp.model.chatDAO;
 import javafx.application.Platform;
 
 public class refresh extends Thread {
@@ -17,7 +19,7 @@ public class refresh extends Thread {
         public void run() {
             Platform.runLater(() -> {
             	System.out.println("LEO");
-               // JAXBManager.readXML(/*RUTITA*/);
+				chatDAO.saveChat(App.RUTAANTONIO, App.chapp);
             });
         }
     }, 0, 6000);
